@@ -13,6 +13,8 @@ const lightboxImage = document.querySelector('.lightbox-image');
 const lightboxTitle = document.querySelector('.lightbox-title');
 const lightboxDescription = document.querySelector('.lightbox-description');
 const lightboxClose = document.querySelector('.lightbox-close');
+const awardsMarquee = document.querySelector('.awards-marquee');
+const awardsTrack = document.querySelector('.awards-track');
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
@@ -163,6 +165,55 @@ function closeLightbox() {
   document.body.style.overflow = '';
 }
 
+function setupAwardsMarquee() {
+  if (!awardsMarquee || !awardsTrack) {
+    return;
+  }
+
+  const sourceGroup = awardsTrack.querySelector('.awards-group');
+
+  if (!sourceGroup) {
+    return;
+  }
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  awardsTrack.querySelectorAll('.awards-group[data-cloned="true"]').forEach((group) => group.remove());
+
+  const marqueeWidth = awardsMarquee.clientWidth;
+  const sourceWidth = sourceGroup.getBoundingClientRect().width;
+
+  if (!sourceWidth) {
+    return;
+  }
+
+  const minimumGroups = Math.max(6, Math.ceil((marqueeWidth * 3) / sourceWidth) + 2);
+  const currentGroups = awardsTrack.querySelectorAll('.awards-group').length;
+
+  for (let index = currentGroups; index < minimumGroups; index += 1) {
+    const clone = sourceGroup.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    clone.dataset.cloned = 'true';
+    clone.querySelectorAll('a').forEach((link) => {
+      link.tabIndex = -1;
+      const image = link.querySelector('img');
+
+      if (image) {
+        image.alt = '';
+      }
+    });
+    awardsTrack.appendChild(clone);
+  }
+
+  const loopDistance = sourceGroup.getBoundingClientRect().width;
+  const pixelsPerSecond = window.innerWidth <= 760 ? 34 : 46;
+  const duration = reducedMotion ? 0 : loopDistance / pixelsPerSecond;
+
+  awardsTrack.style.setProperty('--awards-loop-distance', `${loopDistance}px`);
+  awardsTrack.style.setProperty('--awards-duration', `${duration.toFixed(2)}s`);
+  awardsTrack.classList.toggle('is-animated', !reducedMotion && loopDistance > 0);
+}
+
 if (lightbox && lightboxImage && lightboxTitle && lightboxDescription) {
   awardCards.forEach((card) => {
     card.addEventListener('click', (event) => {
@@ -216,7 +267,14 @@ if (lightbox && lightboxImage && lightboxTitle && lightboxDescription) {
 }
 
 window.addEventListener('scroll', requestTick, { passive: true });
-window.addEventListener('resize', requestTick);
-window.addEventListener('load', updateScrollEffects);
+window.addEventListener('resize', () => {
+  requestTick();
+  setupAwardsMarquee();
+});
+window.addEventListener('load', () => {
+  updateScrollEffects();
+  setupAwardsMarquee();
+});
 
 updateScrollEffects();
+setupAwardsMarquee();

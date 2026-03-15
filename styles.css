@@ -1044,23 +1044,29 @@ main {
   min-height: 158px;
   padding: 22px 18px;
   border-radius: 26px;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(17, 17, 17, 0.08);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(16px);
-  transform: translate3d(0, var(--parallax-y, 0px), 0);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.04), inset 0 2px 0 rgba(255, 255, 255, 0.5);
   display: grid;
   justify-items: center;
   align-content: center;
   gap: 16px;
   text-align: center;
-  transition: transform 200ms ease, border-color 200ms ease, background-color 200ms ease;
+  transform: translate3d(0, var(--parallax-y, 0px), 0);
+  transition:
+    transform 300ms cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-color 300ms ease,
+    background-color 300ms ease,
+    box-shadow 300ms ease;
 }
 
 .stack-logo-item:hover {
-  transform: translate3d(0, calc(var(--parallax-y, 0px) - 4px), 0);
-  border-color: rgba(17, 17, 17, 0.18);
-  background: rgba(255, 255, 255, 0.94);
+  transform: translate3d(0, calc(var(--parallax-y, 0px) - 8px), 0);
+  background: rgba(255, 255, 255, 0.55);
+  border-color: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), inset 0 2px 0 rgba(255, 255, 255, 0.9);
 }
 
 .stack-logo {
@@ -1070,139 +1076,32 @@ main {
   width: 76px;
   height: 76px;
   border-radius: 22px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 245, 247, 0.96));
-  border: 1px solid rgba(17, 17, 17, 0.08);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
-.stack-logo svg {
-  width: 36px;
-  height: 36px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2.4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.stack-logo-item:hover .stack-logo {
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.05);
 }
 
 .stack-logo-label {
   font-size: 0.88rem;
   font-weight: 700;
   letter-spacing: 0.04em;
+  color: var(--text);
 }
 
-.react-logo {
-  color: #61dafb;
-}
-
-.js-logo {
-  color: #f7df1e;
-}
-
-.js-logo svg {
-  fill: currentColor;
+.real-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  display: block;
+  fill: none;
   stroke: none;
-}
-
-.bootstrap-logo {
-  color: #7952b3;
-}
-
-.bootstrap-logo svg {
-  fill: currentColor;
-  stroke: none;
-}
-
-.dotnet-logo {
-  color: #512bd4;
-}
-
-.dotnet-logo svg {
-  fill: currentColor;
-  stroke: none;
-}
-
-.laravel-logo {
-  color: #ff2d20;
-}
-
-.node-logo {
-  color: #5fa04e;
-}
-
-.postgres-logo {
-  color: #336791;
-}
-
-.mysql-logo {
-  color: #00618a;
-}
-
-.mariadb-logo {
-  color: #003545;
-}
-
-.sqlite-logo {
-  color: #0f80cc;
-}
-
-.gcp-logo {
-  color: #4285f4;
-}
-
-.docker-logo {
-  color: #2496ed;
-}
-
-.docker-logo svg rect {
-  fill: currentColor;
-  stroke: none;
-}
-
-.git-logo {
-  color: #f05032;
-}
-
-.github-logo {
-  color: #111111;
-}
-
-.github-logo svg {
-  fill: currentColor;
-  stroke: none;
-}
-
-.tensorflow-logo {
-  color: #ff6f00;
-}
-
-.tensorflow-logo svg {
-  fill: currentColor;
-  stroke: none;
-}
-
-.pytorch-logo {
-  color: #ee4c2c;
-}
-
-.n8n-logo {
-  color: #ea4b71;
-}
-
-.n8n-logo svg {
-  fill: currentColor;
-}
-
-.python-logo {
-  color: #3776ab;
-}
-
-.python-logo svg {
-  fill: currentColor;
-}
-
-.java-logo {
-  color: #f89820;
 }
 
 .achievement-cards {
@@ -1297,8 +1196,12 @@ main {
   display: flex;
   gap: 0;
   width: max-content;
-  animation: awards-marquee 78s linear infinite;
+  transform: translate3d(0, 0, 0);
   will-change: transform;
+}
+
+.awards-track.is-animated {
+  animation: awards-track-loop var(--awards-duration, 80s) linear infinite;
 }
 
 .awards-track:hover {
@@ -1308,16 +1211,17 @@ main {
 .awards-group {
   display: flex;
   gap: 18px;
+  padding-right: 18px;
   flex-shrink: 0;
 }
 
-@keyframes awards-marquee {
+@keyframes awards-track-loop {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translate3d(calc(var(--awards-loop-distance, 0px) * -1), 0, 0);
   }
 }
 
@@ -1747,10 +1651,6 @@ main {
 
   .awards-marquee {
     mask-image: none;
-  }
-
-  .awards-track {
-    animation-duration: 126s;
   }
 
   .award-card {
