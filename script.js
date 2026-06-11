@@ -1,8 +1,43 @@
 const revealItems = document.querySelectorAll('.reveal');
 const navLinks = Array.from(document.querySelectorAll('.site-nav a'));
-const sections = navLinks
-  .filter((link) => (link.getAttribute('href') || '').includes('#'))
-  .map((link) => document.querySelector(link.getAttribute('href')))
+
+function normalizePathname(pathname) {
+  if (!pathname) {
+    return '/';
+  }
+
+  const withoutIndex = pathname.replace(/\/index(?:\.html)?$/i, '/');
+  const withoutHtmlExtension = withoutIndex.replace(/\.html$/i, '');
+  const normalized = withoutHtmlExtension.length > 1
+    ? withoutHtmlExtension.replace(/\/+$/, '')
+    : withoutHtmlExtension;
+
+  return normalized || '/';
+}
+
+const currentPathname = normalizePathname(window.location.pathname);
+const sectionLinks = navLinks
+  .map((link) => {
+    const href = link.getAttribute('href');
+
+    if (!href) {
+      return null;
+    }
+
+    const url = new URL(href, window.location.href);
+
+    if (!url.hash || normalizePathname(url.pathname) !== currentPathname) {
+      return null;
+    }
+
+    const section = document.querySelector(url.hash);
+
+    if (!section) {
+      return null;
+    }
+
+    return { link, section };
+  })
   .filter(Boolean);
 const movingItems = document.querySelectorAll('[data-speed]');
 const projectCards = document.querySelectorAll('.project-card');
@@ -51,21 +86,16 @@ function clamp(value, min, max) {
 }
 
 function updateActiveNav() {
-  if (!sections.length) {
+  if (!sectionLinks.length) {
     return;
   }
 
   const marker = window.innerHeight * 0.35;
-
-  const sectionLinks = navLinks.filter((link) => (link.getAttribute('href') || '').includes('#'));
-
-  sections.forEach((section, index) => {
+  sectionLinks.forEach(({ link, section }) => {
     const rect = section.getBoundingClientRect();
     const active = rect.top <= marker && rect.bottom >= marker;
 
-    if (sectionLinks[index]) {
-      sectionLinks[index].classList.toggle('active', active);
-    }
+    link.classList.toggle('active', active);
   });
 }
 
