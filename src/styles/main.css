@@ -342,19 +342,22 @@ main {
 }
 
 .hero-metrics div {
-  padding: 18px 18px 20px;
+  padding: 14px 16px 16px;
   border-radius: var(--radius-md);
 }
 
 .hero-metrics dt {
   color: var(--muted);
-  font-size: 0.82rem;
-  margin-bottom: 8px;
+  font-size: 0.76rem;
+  margin-bottom: 6px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .hero-metrics dd {
   font-weight: 700;
-  line-height: 1.45;
+  font-size: 0.92rem;
+  line-height: 1.42;
 }
 
 .hero-stage {
@@ -587,7 +590,7 @@ main {
 
 .section-heading h2 {
   max-width: 22ch;
-  font-size: var(--type-title-lg);
+  font-size: clamp(2.11rem, calc(3vw + 0.33rem), 3.03rem);
   line-height: 1.06;
   letter-spacing: -0.04em;
 }
@@ -1101,14 +1104,14 @@ main {
 
 .stack-logo-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
 }
 
 .stack-logo-item {
-  min-height: 158px;
-  padding: 22px 18px;
-  border-radius: 26px;
+  min-height: 124px;
+  padding: 16px 12px;
+  border-radius: 22px;
   background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
@@ -1117,7 +1120,7 @@ main {
   display: grid;
   justify-items: center;
   align-content: center;
-  gap: 16px;
+  gap: 10px;
   text-align: center;
   transform: translate3d(0, var(--parallax-y, 0px), 0);
   transition:
@@ -1128,19 +1131,19 @@ main {
 }
 
 .stack-logo-item:hover {
-  transform: translate3d(0, calc(var(--parallax-y, 0px) - 8px), 0);
+  transform: translate3d(0, calc(var(--parallax-y, 0px) - 5px), 0);
   background: rgba(255, 255, 255, 0.55);
   border-color: #ffffff;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), inset 0 2px 0 rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.07), inset 0 2px 0 rgba(255, 255, 255, 0.9);
 }
 
 .stack-logo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 76px;
-  height: 76px;
-  border-radius: 22px;
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -1154,15 +1157,15 @@ main {
 }
 
 .stack-logo-label {
-  font-size: 0.84rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   color: var(--text);
 }
 
 .real-icon {
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   object-fit: contain;
   display: block;
   fill: none;
@@ -1895,7 +1898,7 @@ main {
   }
 
   .stack-logo-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .featured-article-card,
@@ -1937,12 +1940,12 @@ main {
     padding-left: 0;
   }
 
-  .hero-metrics {
-    grid-template-columns: 1fr;
-  }
-
   .experience-timeline {
     padding-left: 28px;
+  }
+
+  .hero-metrics {
+    grid-template-columns: 1fr;
   }
 
   .stage-card-main {
@@ -2048,13 +2051,14 @@ main {
   }
 
   .profile-card,
-  .social-card {
+  .social-card,
+  .hero-metrics {
     width: 100%;
     max-width: none;
   }
 
   .stack-logo-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .certificate-grid {
@@ -2083,17 +2087,17 @@ main {
   }
 
   .stack-logo-item {
-    min-height: 138px;
-    padding: 18px 14px;
+    min-height: 112px;
+    padding: 14px 10px;
   }
 
   .stack-logo {
-    width: 68px;
-    height: 68px;
+    width: 52px;
+    height: 52px;
   }
 
   .stack-logo-label {
-    font-size: 0.82rem;
+    font-size: 0.72rem;
   }
 
   .lightbox {
@@ -2293,13 +2297,17 @@ main {
     font-size: clamp(1.58rem, 6.6vw, 2.2rem);
   }
 
+  .section-heading h2 {
+    font-size: clamp(1.91rem, calc(6.6vw + 0.33rem), 2.53rem);
+  }
+
   .stack-logo-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .stack-logo-item {
-    min-height: 124px;
-    border-radius: 22px;
+    min-height: 104px;
+    border-radius: 20px;
   }
 
   .hero-metrics div {
