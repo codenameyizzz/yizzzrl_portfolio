@@ -1,4 +1,10 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
+
+const PdfViewer = lazy(() =>
+  import('./PdfPreview').then((module) => ({
+    default: module.PdfViewer
+  }))
+);
 
 export default function Lightbox({ item, onClose }) {
   useEffect(() => {
@@ -41,7 +47,9 @@ export default function Lightbox({ item, onClose }) {
 
       <div className="lightbox-panel">
         {item?.kind === 'pdf' && item?.src ? (
-          <iframe className="lightbox-document" src={item.src} title={item.title || 'Document preview'} />
+          <Suspense fallback={<div className="pdf-loading">Loading PDF preview...</div>}>
+            <PdfViewer src={item.src} title={item.title || 'Document preview'} />
+          </Suspense>
         ) : null}
         {item?.image ? <img className="lightbox-image" src={item.image} alt={item.imageAlt || item.title} /> : null}
         {item?.kind === 'image' && item?.src ? <img className="lightbox-image" src={item.src} alt={item.title || ''} /> : null}

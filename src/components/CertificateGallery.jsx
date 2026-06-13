@@ -1,3 +1,11 @@
+import { lazy, Suspense } from 'react';
+
+const PdfThumbnail = lazy(() =>
+  import('./PdfPreview').then((module) => ({
+    default: module.PdfThumbnail
+  }))
+);
+
 export default function CertificateGallery({ items, onPreview }) {
   return (
     <div className="certificate-grid">
@@ -7,11 +15,9 @@ export default function CertificateGallery({ items, onPreview }) {
             {item.kind === 'image' ? (
               <img src={item.src} alt={item.title} />
             ) : (
-              <div className="certificate-preview-pdf">
-                <span className="certificate-preview-badge">{item.format}</span>
-                <strong>{item.category}</strong>
-                <span>Preview available in modal</span>
-              </div>
+              <Suspense fallback={<div className="pdf-loading">Preparing thumbnail...</div>}>
+                <PdfThumbnail src={item.src} title={item.title} />
+              </Suspense>
             )}
           </div>
 

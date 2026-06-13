@@ -80,6 +80,18 @@ img {
   max-width: 100%;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 p,
 h1,
 h2,
@@ -1321,6 +1333,91 @@ main {
   background: #ffffff;
 }
 
+.pdf-viewer {
+  display: grid;
+  gap: 14px;
+}
+
+.pdf-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pdf-toolbar-button {
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pdf-toolbar-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.pdf-toolbar-status,
+.pdf-viewer-caption {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.pdf-viewer-frame {
+  display: grid;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 20px;
+  background: rgba(245, 245, 247, 0.92);
+  overflow: auto;
+}
+
+.pdf-thumbnail-shell {
+  height: 100%;
+}
+
+.pdf-thumbnail-frame {
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+  height: 100%;
+  padding: 10px;
+  background:
+    radial-gradient(circle at top right, rgba(17, 17, 17, 0.05), transparent 28%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(245, 245, 247, 0.95));
+}
+
+.pdf-loading,
+.pdf-error {
+  display: grid;
+  place-items: center;
+  min-height: 180px;
+  width: 100%;
+  padding: 18px;
+  border-radius: 16px;
+  text-align: center;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.react-pdf__Page {
+  max-width: 100%;
+}
+
+.react-pdf__Page__canvas {
+  display: block;
+  max-width: 100%;
+  height: auto !important;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(17, 17, 17, 0.1);
+}
+
 .lightbox-copy {
   display: grid;
   gap: 8px;
@@ -1563,29 +1660,6 @@ main {
   min-height: 220px;
   object-fit: cover;
   display: block;
-}
-
-.certificate-preview-pdf {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  align-content: center;
-  justify-items: start;
-  gap: 10px;
-  padding: 24px;
-  background:
-    radial-gradient(circle at top right, rgba(17, 17, 17, 0.05), transparent 25%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 247, 0.92));
-}
-
-.certificate-preview-pdf strong {
-  font-size: 1.2rem;
-  line-height: 1.25;
-}
-
-.certificate-preview-pdf span:last-child {
-  color: var(--muted);
-  line-height: 1.6;
 }
 
 .certificate-preview-badge,
@@ -1923,6 +1997,10 @@ main {
     height: min(68vh, 760px);
   }
 
+  .pdf-toolbar {
+    justify-content: center;
+  }
+
   .stage-card-main {
     padding: 24px;
   }
@@ -1982,8 +2060,8 @@ main {
     min-height: 190px;
   }
 
-  .certificate-preview-pdf {
-    padding: 20px;
+  .pdf-thumbnail-frame {
+    min-height: 190px;
   }
 
   .featured-article-thumb {
@@ -2034,6 +2112,10 @@ main {
   .certificate-actions {
     display: grid;
     grid-template-columns: 1fr;
+  }
+
+  .pdf-toolbar-button {
+    flex: 1 1 0;
   }
 
   .site-footer {
