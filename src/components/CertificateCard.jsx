@@ -35,18 +35,11 @@ function CertificateMeta({ item }) {
   const summary = item.summary.trim().replace(/\.$/, '');
 
   return (
-    <>
-      <div className="certificate-meta">
-        <span className="certificate-chip">{item.category}</span>
-        <span className="certificate-chip certificate-chip-secondary">{item.format}</span>
-      </div>
-
-      <div className="certificate-copy">
-        <h3>{item.title}</h3>
-        <p className="certificate-issuer">{item.issuer}</p>
-        <p>{summary}</p>
-      </div>
-    </>
+    <div className="certificate-copy">
+      <h3>{item.title}</h3>
+      <p className="certificate-issuer">{item.issuer}</p>
+      <p>{summary}</p>
+    </div>
   );
 }
 
