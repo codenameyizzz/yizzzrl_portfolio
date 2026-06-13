@@ -56,22 +56,40 @@ export const aboutPanels = [
 
 export const projectHighlights = [
   {
-    type: 'Enterprise',
-    title: 'IDX SPOP+ for Indonesian Stock Exchange operations',
+    title: 'TobaGen AI Discovery',
     description:
-      'Backend and CMS-related development in ASP.NET, Razor, Syncfusion, AJAX Datatable workflows, and service synchronization.'
+      'AI travel planner for Lake Toba with itinerary generation, saved plans, PDF export, and map-backed discovery.',
+    preview: publicAsset('/projects/tobagen-preview.png'),
+    previewAlt: 'Landing page preview for TobaGen AI Discovery',
+    liveUrl: 'https://tobagen-ai.vercel.app/',
+    repoUrl: 'https://github.com/codenameyizzz/tobagen-AI'
   },
   {
-    type: 'Platform',
-    title: 'Campus Alumni Information System',
+    title: 'MindShelf',
     description:
-      'Full-stack work spanning Bootstrap, JavaScript, Express.js, Docker-based microservices, and secure authentication flows.'
+      'Local-first media link library for saving YouTube, Instagram, and web references with cached thumbnails and quiet browsing.',
+    preview: publicAsset('/projects/mindshelf-preview.png'),
+    previewAlt: 'Landing page preview for MindShelf',
+    liveUrl: 'https://mindshelf-ten.vercel.app/',
+    repoUrl: 'https://github.com/codenameyizzz/mindshelf'
   },
   {
-    type: 'Innovation',
-    title: 'Terra-Track smart agriculture platform',
+    title: 'MoodTune',
     description:
-      'AI, IoT, and Huawei-oriented work that earned National Runner-Up in the Huawei ICT Innovation Track 2024.'
+      'Photo mood analysis app that turns image vibes into curated songs, books, and movies with Gemini-powered recommendations.',
+    preview: publicAsset('/projects/moodtune-preview.png'),
+    previewAlt: 'Landing page preview for MoodTune',
+    liveUrl: 'https://moodtune-liard.vercel.app/',
+    repoUrl: 'https://github.com/codenameyizzz/moodtune'
+  },
+  {
+    title: 'SSH Visual File Explorer',
+    description:
+      'Browser-based SSH and SFTP explorer for browsing, editing, and downloading remote files without terminal workflows.',
+    preview: publicAsset('/projects/ssh-visualizer-preview.png'),
+    previewAlt: 'Landing page preview for SSH Visual File Explorer',
+    liveUrl: 'https://ssh-visual-file-explorer.vercel.app/',
+    repoUrl: 'https://github.com/codenameyizzz/ssh-visual-file-explorer'
   }
 ];
 

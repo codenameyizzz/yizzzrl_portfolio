@@ -4,6 +4,7 @@ import AwardsMarquee from '../components/AwardsMarquee';
 import CertificatesMarquee from '../components/CertificatesMarquee';
 import Lightbox from '../components/Lightbox';
 import PageShell from '../components/PageShell';
+import ProjectHighlightCard from '../components/ProjectHighlightCard';
 import SocialIcon from '../components/SocialIcon';
 import { featuredCertificates } from '../data/certificates';
 import {
@@ -155,13 +156,9 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="article-grid">
+        <div className="project-highlight-grid">
           {projectHighlights.map((project) => (
-            <article className="article-card reveal" key={project.title}>
-              <span className="article-type">{project.type}</span>
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-            </article>
+            <ProjectHighlightCard key={project.title} project={project} />
           ))}
         </div>
 

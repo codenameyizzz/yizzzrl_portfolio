@@ -1104,14 +1104,14 @@ main {
 
 .stack-logo-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 12px;
 }
 
 .stack-logo-item {
-  min-height: 124px;
-  padding: 16px 12px;
-  border-radius: 22px;
+  min-height: 110px;
+  padding: 14px 10px;
+  border-radius: 20px;
   background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
@@ -1120,7 +1120,7 @@ main {
   display: grid;
   justify-items: center;
   align-content: center;
-  gap: 10px;
+  gap: 8px;
   text-align: center;
   transform: translate3d(0, var(--parallax-y, 0px), 0);
   transition:
@@ -1141,9 +1141,9 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 18px;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -1157,19 +1157,107 @@ main {
 }
 
 .stack-logo-label {
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--text);
 }
 
 .real-icon {
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
   display: block;
   fill: none;
   stroke: none;
+}
+
+.project-highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.project-highlight-card {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 26px;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.project-highlight-preview {
+  display: block;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: rgba(245, 245, 247, 0.92);
+}
+
+.project-highlight-preview img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  transition: transform 220ms ease;
+}
+
+.project-highlight-preview:hover img {
+  transform: scale(1.02);
+}
+
+.project-highlight-copy {
+  display: grid;
+  gap: 8px;
+}
+
+.project-highlight-copy h3 {
+  font-size: clamp(1.14rem, 1.8vw, 1.42rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.project-highlight-copy p {
+  color: var(--muted);
+  font-size: var(--type-body-sm);
+  line-height: 1.66;
+}
+
+.project-highlight-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.project-highlight-launch {
+  min-height: 44px;
+}
+
+.project-highlight-repo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.project-highlight-repo:hover {
+  transform: translateY(-1px);
+  background: #ffffff;
+}
+
+.project-highlight-repo svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
 }
 
 .achievement-cards {
@@ -1898,11 +1986,12 @@ main {
   }
 
   .stack-logo-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .featured-article-card,
-  .blog-entry {
+  .blog-entry,
+  .project-highlight-grid {
     grid-template-columns: 1fr;
   }
 
@@ -2087,17 +2176,17 @@ main {
   }
 
   .stack-logo-item {
-    min-height: 112px;
-    padding: 14px 10px;
+    min-height: 98px;
+    padding: 12px 8px;
   }
 
   .stack-logo {
-    width: 52px;
-    height: 52px;
+    width: 46px;
+    height: 46px;
   }
 
   .stack-logo-label {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
   }
 
   .lightbox {
@@ -2169,7 +2258,8 @@ main {
   }
 
   .featured-article-card,
-  .blog-entry {
+  .blog-entry,
+  .project-highlight-card {
     padding: 18px;
     border-radius: 24px;
   }
@@ -2216,6 +2306,11 @@ main {
 
   .featured-article-card h2 {
     max-width: none;
+  }
+
+  .project-highlight-actions {
+    display: grid;
+    grid-template-columns: 1fr auto;
   }
 
   .blog-entry-arrow,
@@ -2302,12 +2397,12 @@ main {
   }
 
   .stack-logo-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .stack-logo-item {
-    min-height: 104px;
-    border-radius: 20px;
+    min-height: 92px;
+    border-radius: 18px;
   }
 
   .hero-metrics div {
