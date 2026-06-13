@@ -2,14 +2,18 @@ import SocialIcon from './SocialIcon';
 
 export default function ProjectHighlightCard({ project }) {
   return (
-    <article className="project-highlight-card reveal">
+    <article className="project-highlight-card">
       <a
         className="project-highlight-preview"
         href={project.liveUrl}
         target="_blank"
         rel="noreferrer"
       >
-        <img src={project.preview} alt={project.previewAlt} />
+        <img
+          src={project.preview}
+          alt={project.previewAlt}
+          style={project.previewPosition ? { objectPosition: project.previewPosition } : undefined}
+        />
       </a>
 
       <div className="project-highlight-copy">

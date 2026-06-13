@@ -4,7 +4,7 @@ import AwardsMarquee from '../components/AwardsMarquee';
 import CertificatesMarquee from '../components/CertificatesMarquee';
 import Lightbox from '../components/Lightbox';
 import PageShell from '../components/PageShell';
-import ProjectHighlightCard from '../components/ProjectHighlightCard';
+import ProjectHighlightsScroller from '../components/ProjectHighlightsScroller';
 import SocialIcon from '../components/SocialIcon';
 import { featuredCertificates } from '../data/certificates';
 import {
@@ -156,11 +156,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="project-highlight-grid">
-          {projectHighlights.map((project) => (
-            <ProjectHighlightCard key={project.title} project={project} />
-          ))}
-        </div>
+        <ProjectHighlightsScroller items={projectHighlights} />
 
         <div className="section-cta reveal">
           <Link className="button button-primary" to="/projects">

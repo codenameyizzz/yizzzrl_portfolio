@@ -1,5 +1,6 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useActiveSection } from '../hooks/useActiveSection';
+import useTheme from '../hooks/useTheme';
 
 const anchorLinks = [
   { id: 'about', label: 'About' },
@@ -11,6 +12,7 @@ const anchorLinks = [
 export default function SiteHeader() {
   const location = useLocation();
   const activeSection = useActiveSection();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <header className="site-header reveal">
@@ -19,37 +21,50 @@ export default function SiteHeader() {
         <span className="brand-text">Yizreel Schwartz Sipahutar</span>
       </Link>
 
-      <nav className="site-nav" aria-label="Primary navigation">
-        {anchorLinks.slice(0, 2).map((item) => (
-          <Link
-            key={item.id}
-            className={location.pathname === '/' && activeSection === item.id ? 'active' : undefined}
-            to={`/#${item.id}`}
-          >
-            {item.label}
-          </Link>
-        ))}
+      <div className="site-header-actions">
+        <nav className="site-nav" aria-label="Primary navigation">
+          {anchorLinks.slice(0, 2).map((item) => (
+            <Link
+              key={item.id}
+              className={location.pathname === '/' && activeSection === item.id ? 'active' : undefined}
+              to={`/#${item.id}`}
+            >
+              {item.label}
+            </Link>
+          ))}
 
-        <NavLink className={({ isActive }) => (isActive ? 'active-static' : undefined)} to="/projects">
-          Projects
-        </NavLink>
-        <NavLink className={({ isActive }) => (isActive ? 'active-static' : undefined)} to="/certificates">
-          Certificate
-        </NavLink>
-        <NavLink className={({ isActive }) => (isActive ? 'active-static' : undefined)} to="/blog">
-          Blog
-        </NavLink>
+          <NavLink className={({ isActive }) => (isActive ? 'active-static' : undefined)} to="/projects">
+            Projects
+          </NavLink>
+          <NavLink className={({ isActive }) => (isActive ? 'active-static' : undefined)} to="/certificates">
+            Certificate
+          </NavLink>
+          <NavLink className={({ isActive }) => (isActive ? 'active-static' : undefined)} to="/blog">
+            Blog
+          </NavLink>
 
-        {anchorLinks.slice(2).map((item) => (
-          <Link
-            key={item.id}
-            className={location.pathname === '/' && activeSection === item.id ? 'active' : undefined}
-            to={`/#${item.id}`}
-          >
-            {item.label}
-          </Link>
-        ))}
-      </nav>
+          {anchorLinks.slice(2).map((item) => (
+            <Link
+              key={item.id}
+              className={location.pathname === '/' && activeSection === item.id ? 'active' : undefined}
+              to={`/#${item.id}`}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+
+        <button
+          aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          aria-pressed={theme === 'dark'}
+          className="theme-toggle"
+          type="button"
+          onClick={toggleTheme}
+        >
+          <span aria-hidden="true">{theme === 'dark' ? '☀' : '☾'}</span>
+          <span className="sr-only">{theme === 'dark' ? 'Light mode' : 'Dark mode'}</span>
+        </button>
+      </div>
     </header>
   );
 }

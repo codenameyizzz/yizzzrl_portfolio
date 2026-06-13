@@ -61,6 +61,7 @@ export const projectHighlights = [
       'AI travel planner for Lake Toba with itinerary generation, saved plans, PDF export, and map-backed discovery.',
     preview: publicAsset('/projects/tobagen-preview.png'),
     previewAlt: 'Landing page preview for TobaGen AI Discovery',
+    previewPosition: 'center top',
     liveUrl: 'https://tobagen-ai.vercel.app/',
     repoUrl: 'https://github.com/codenameyizzz/tobagen-AI'
   },
@@ -79,6 +80,7 @@ export const projectHighlights = [
       'Photo mood analysis app that turns image vibes into curated songs, books, and movies with Gemini-powered recommendations.',
     preview: publicAsset('/projects/moodtune-preview.png'),
     previewAlt: 'Landing page preview for MoodTune',
+    previewPosition: 'center top',
     liveUrl: 'https://moodtune-liard.vercel.app/',
     repoUrl: 'https://github.com/codenameyizzz/moodtune'
   },
