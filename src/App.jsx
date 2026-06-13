@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
+import CertificatesPage from './pages/CertificatesPage';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import ProjectsPage from './pages/ProjectsPage';
@@ -17,6 +18,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/projects" element={<ProjectsPage />} />
+      <Route path="/certificates" element={<CertificatesPage />} />
       <Route path="/blog" element={<BlogPage />} />
       <Route path="/:slug" element={<BlogPostPage />} />
       <Route path="/404" element={<NotFoundPage />} />

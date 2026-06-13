@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AwardsMarquee from '../components/AwardsMarquee';
+import CertificateGallery from '../components/CertificateGallery';
 import Lightbox from '../components/Lightbox';
 import PageShell from '../components/PageShell';
+import SocialIcon from '../components/SocialIcon';
+import { featuredCertificates } from '../data/certificates';
 import {
   aboutPanels,
   achievements,
@@ -88,7 +91,7 @@ export default function HomePage() {
           <div className="stage-card social-card" data-speed="1.05">
             {socialLinks.map((item) => (
               <a key={item.label} className="social-chip" href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noreferrer' : undefined} aria-label={item.ariaLabel}>
-                {item.icon}
+                <SocialIcon name={item.iconName} />
                 <span>{item.label}</span>
               </a>
             ))}
@@ -278,6 +281,30 @@ export default function HomePage() {
 
         <AwardsMarquee items={awards} onOpen={setLightboxItem} />
         <Lightbox item={lightboxItem} onClose={() => setLightboxItem(null)} />
+      </section>
+
+      <section className="section-shell certificates-section" id="certificates">
+        <div className="section-heading reveal">
+          <span className="section-index">07</span>
+          <div>
+            <p className="eyebrow">Certificate</p>
+            <h2>Highlighted certificates and official records that can be previewed directly.</h2>
+          </div>
+        </div>
+
+        <div className="certificates-intro reveal">
+          <p>
+            A focused selection from the broader Certificate archive, including competition recognition, research training, internship records, and certification milestones.
+          </p>
+        </div>
+
+        <CertificateGallery items={featuredCertificates} onPreview={setLightboxItem} />
+
+        <div className="section-cta reveal">
+          <Link className="button button-primary" to="/certificates">
+            Load more certificates
+          </Link>
+        </div>
       </section>
 
       <section className="section-shell contact-section" id="contact">

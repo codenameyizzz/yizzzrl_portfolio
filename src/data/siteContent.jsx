@@ -1,42 +1,23 @@
+import { publicAsset } from '../utils/publicAsset';
+
 export const socialLinks = [
   {
     href: 'https://github.com',
     label: 'GitHub',
     ariaLabel: 'GitHub profile',
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path
-          d="M12 2C6.48 2 2 6.58 2 12.22c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.49 0-.24-.01-1.03-.01-1.87-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .08 1.54 1.06 1.54 1.06.9 1.56 2.35 1.11 2.92.85.09-.67.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.09 0-1.13.39-2.05 1.03-2.77-.1-.26-.45-1.3.1-2.7 0 0 .84-.27 2.75 1.06A9.3 9.3 0 0 1 12 6.8c.85 0 1.71.12 2.5.36 1.9-1.33 2.74-1.06 2.74-1.06.55 1.4.2 2.44.1 2.7.64.72 1.03 1.64 1.03 2.77 0 3.96-2.34 4.82-4.57 5.08.36.31.67.92.67 1.86 0 1.34-.01 2.42-.01 2.75 0 .27.18.59.69.49A10.23 10.23 0 0 0 22 12.22C22 6.58 17.52 2 12 2Z"
-          fill="currentColor"
-        />
-      </svg>
-    )
+    iconName: 'github'
   },
   {
     href: 'https://linkedin.com/in/yizreelschwartz',
     label: 'LinkedIn',
     ariaLabel: 'LinkedIn profile',
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path
-          d="M6.94 8.5A1.56 1.56 0 1 1 6.93 5.4a1.56 1.56 0 0 1 0 3.1ZM5.6 9.72h2.67V18H5.6zm4.34 0h2.56v1.13h.04c.36-.68 1.22-1.39 2.5-1.39 2.67 0 3.16 1.8 3.16 4.12V18h-2.66v-3.93c0-.94-.02-2.15-1.28-2.15-1.29 0-1.49 1.03-1.49 2.08V18H9.94z"
-          fill="currentColor"
-        />
-      </svg>
-    )
+    iconName: 'linkedin'
   },
   {
     href: 'mailto:yizreelschwartz180304@gmail.com',
     label: 'Email',
     ariaLabel: 'Send email to Yizreel',
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path
-          d="M4 6.5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Zm0 1.8V9l8 4.9L20 9v-.7l-8 4.9z"
-          fill="currentColor"
-        />
-      </svg>
-    )
+    iconName: 'email'
   }
 ];
 
@@ -289,40 +270,40 @@ export const achievements = [
 
 export const awards = [
   {
-    image: '/awards/Yizreel_Achievement_1.jpg',
+    image: publicAsset('/awards/Yizreel_Achievement_1.jpg'),
     alt: 'Award highlight for Yizreel Schwartz Sipahutar',
     title: 'Huawei ICT Innovation Track',
     description:
       'National Runner-Up for Terra-Track, a smart agriculture platform powered by AI and IoT.'
   },
   {
-    image: '/awards/Yizreel_Achievement_2.jpg',
+    image: publicAsset('/awards/Yizreel_Achievement_2.jpg'),
     alt: 'Competition achievement for Yizreel Schwartz Sipahutar',
     title: 'Huawei ICT Cloud Track',
     description:
       'National finalist recognition for technical depth, delivery, and competitive problem solving.'
   },
   {
-    image: '/awards/Yizreel_Achievement_3.jpg',
+    image: publicAsset('/awards/Yizreel_Achievement_3.jpg'),
     alt: 'Recognition and award photo for Yizreel Schwartz Sipahutar',
     title: 'Leadership and Technical Recognition',
     description:
       'Milestones across engineering, research, and student leadership experience.'
   },
   {
-    image: '/awards/2nd.png',
+    image: publicAsset('/awards/2nd.png'),
     alt: 'National competition recognition visual',
     title: 'National Competition Recognition',
     description: 'Additional achievement record from competition and portfolio milestones.'
   },
   {
-    image: '/awards/Hari%20Batik%20Jakarta.jpg',
+    image: publicAsset('/awards/Hari Batik Jakarta.jpg'),
     alt: 'Achievement or event photo from Jakarta',
     title: 'Event Documentation',
     description: 'Public activity and documented presence in achievement-related events.'
   },
   {
-    image: '/awards/WhatsApp%20Image%202025-12-16%20at%2013.55.18.jpeg',
+    image: publicAsset('/awards/WhatsApp Image 2025-12-16 at 13.55.18.jpeg'),
     alt: 'Additional milestone photo for achievements',
     title: 'Additional Milestone',
     description: 'Supplementary photo from the wider archive of achievements and recognition.'

@@ -1312,10 +1312,26 @@ main {
   background: rgba(14, 32, 56, 0.06);
 }
 
+.lightbox-document {
+  width: 100%;
+  height: min(72vh, 900px);
+  display: block;
+  border: 0;
+  border-radius: 20px;
+  background: #ffffff;
+}
+
 .lightbox-copy {
   display: grid;
   gap: 8px;
   padding: 18px 10px 8px;
+}
+
+.lightbox-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0 10px 10px;
 }
 
 .lightbox-title {
@@ -1504,6 +1520,136 @@ main {
   margin-bottom: 22px;
 }
 
+.certificates-intro {
+  margin-bottom: 24px;
+  max-width: 54rem;
+}
+
+.certificates-intro p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.certificate-card {
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+  min-height: 100%;
+  border-radius: 28px;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.certificate-preview {
+  position: relative;
+  min-height: 220px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(245, 245, 247, 0.9));
+}
+
+.certificate-preview img {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.certificate-preview-pdf {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 10px;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top right, rgba(17, 17, 17, 0.05), transparent 25%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 247, 0.92));
+}
+
+.certificate-preview-pdf strong {
+  font-size: 1.2rem;
+  line-height: 1.25;
+}
+
+.certificate-preview-pdf span:last-child {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.certificate-preview-badge,
+.certificate-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.certificate-preview-badge,
+.certificate-chip {
+  background: rgba(17, 17, 17, 0.07);
+  color: var(--text);
+}
+
+.certificate-chip-secondary {
+  background: rgba(140, 140, 148, 0.12);
+  color: var(--muted);
+}
+
+.certificate-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.certificate-copy {
+  display: grid;
+  gap: 10px;
+}
+
+.certificate-copy h3 {
+  font-size: clamp(1.4rem, 2.6vw, 1.95rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.certificate-issuer {
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.certificate-copy p:last-child {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.certificate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.certificate-actions .button {
+  min-height: 46px;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -1549,6 +1695,10 @@ main {
   .article-grid,
   .achievement-cards {
     grid-template-columns: 1fr;
+  }
+
+  .certificate-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .stack-logo-grid {
@@ -1714,6 +1864,10 @@ main {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .certificate-grid {
+    grid-template-columns: 1fr;
+  }
+
   .hero-stage-grid {
     gap: 14px;
   }
@@ -1765,6 +1919,10 @@ main {
     border-radius: 24px;
   }
 
+  .lightbox-document {
+    height: min(68vh, 760px);
+  }
+
   .stage-card-main {
     padding: 24px;
   }
@@ -1814,6 +1972,20 @@ main {
     border-radius: 24px;
   }
 
+  .certificate-card {
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .certificate-preview,
+  .certificate-preview img {
+    min-height: 190px;
+  }
+
+  .certificate-preview-pdf {
+    padding: 20px;
+  }
+
   .featured-article-thumb {
     min-height: 240px;
   }
@@ -1857,6 +2029,11 @@ main {
     width: 100%;
     min-height: 54px;
     padding: 14px 18px;
+  }
+
+  .certificate-actions {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .site-footer {

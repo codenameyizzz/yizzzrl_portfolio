@@ -33,6 +33,9 @@ export default function SiteHeader() {
         <NavLink className={({ isActive }) => (isActive ? 'active-static' : undefined)} to="/projects">
           Projects
         </NavLink>
+        <NavLink className={({ isActive }) => (isActive ? 'active-static' : undefined)} to="/certificates">
+          Certificate
+        </NavLink>
         <NavLink className={({ isActive }) => (isActive ? 'active-static' : undefined)} to="/blog">
           Blog
         </NavLink>
