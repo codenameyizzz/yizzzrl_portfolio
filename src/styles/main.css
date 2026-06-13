@@ -15,6 +15,15 @@
   --radius-md: 18px;
   --container: min(1180px, calc(100vw - 48px));
   --progress: 0;
+  --type-label: 0.69rem;
+  --type-body-sm: 0.94rem;
+  --type-body: 1rem;
+  --type-body-lg: 1.03rem;
+  --type-title-sm: clamp(1.22rem, 2vw, 1.68rem);
+  --type-title-md: clamp(1.5rem, 2.4vw, 2.05rem);
+  --type-title-lg: clamp(1.78rem, 3vw, 2.7rem);
+  --type-page-title: clamp(2.7rem, 5.8vw, 4.7rem);
+  --type-hero-title: clamp(3.35rem, 7.8vw, 5.9rem);
 }
 
 * {
@@ -35,6 +44,8 @@ html {
 body {
   margin: 0;
   font-family: "Manrope", sans-serif;
+  font-size: var(--type-body);
+  line-height: 1.65;
   background:
     radial-gradient(circle at top left, rgba(0, 0, 0, 0.03), transparent 20%),
     radial-gradient(circle at 82% 18%, rgba(0, 0, 0, 0.02), transparent 18%),
@@ -145,7 +156,7 @@ dd {
 }
 
 .brand-text {
-  font-size: 0.95rem;
+  font-size: var(--type-body-sm);
   line-height: 1.3;
   text-wrap: balance;
 }
@@ -161,7 +172,7 @@ dd {
 
 .site-nav a {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: var(--type-body-sm);
   padding: 10px 14px;
   border-radius: 999px;
   transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
@@ -189,7 +200,7 @@ dd {
 .progress-label {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  font-size: 0.72rem;
+  font-size: var(--type-label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(17, 17, 17, 0.45);
@@ -208,7 +219,7 @@ main {
 }
 
 .section-shell {
-  padding: 64px 0;
+  padding: 46px 0;
 }
 
 .hero {
@@ -235,7 +246,7 @@ main {
 .mini-panel span {
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  font-size: 0.72rem;
+  font-size: var(--type-label);
 }
 
 .eyebrow,
@@ -252,7 +263,7 @@ main {
 .hero-copy h1 {
   max-width: 11ch;
   margin-top: 18px;
-  font-size: clamp(4rem, 9vw, 7rem);
+  font-size: var(--type-hero-title);
   line-height: 0.93;
   letter-spacing: -0.06em;
 }
@@ -269,17 +280,17 @@ main {
 
 .hero-text {
   max-width: 40rem;
-  margin-top: 24px;
+  margin-top: 22px;
   color: var(--muted);
-  font-size: 1.08rem;
-  line-height: 1.75;
+  font-size: var(--type-body-lg);
+  line-height: 1.72;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 34px;
+  margin-top: 30px;
 }
 
 .button {
@@ -291,6 +302,7 @@ main {
   border-radius: 999px;
   border: 1px solid transparent;
   font-weight: 700;
+  font-size: var(--type-body-sm);
   transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
   text-align: center;
 }
@@ -313,7 +325,7 @@ main {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
-  margin-top: 40px;
+  margin-top: 34px;
 }
 
 .hero-metrics div,
@@ -336,13 +348,13 @@ main {
 
 .hero-metrics dt {
   color: var(--muted);
-  font-size: 0.86rem;
+  font-size: 0.82rem;
   margin-bottom: 8px;
 }
 
 .hero-metrics dd {
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 .hero-stage {
@@ -420,11 +432,11 @@ main {
 .profile-location {
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  font-size: 0.72rem;
+  font-size: var(--type-label);
 }
 
 .profile-overlay strong {
-  font-size: 1.1rem;
+  font-size: 1.02rem;
   line-height: 1.35;
 }
 
@@ -456,8 +468,8 @@ main {
 
 .stage-card-main h2 {
   margin-top: 10px;
-  font-size: clamp(1.7rem, 3.2vw, 2.5rem);
-  line-height: 1.02;
+  font-size: clamp(1.55rem, 2.8vw, 2.2rem);
+  line-height: 1.06;
   letter-spacing: -0.05em;
 }
 
@@ -493,6 +505,7 @@ main {
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.78);
   border: 1px solid rgba(17, 17, 17, 0.08);
+  font-size: var(--type-body-sm);
   transition: transform 180ms ease, background-color 180ms ease;
 }
 
@@ -547,7 +560,7 @@ main {
   gap: 42px;
   width: max-content;
   padding: 20px 0;
-  font-size: 1rem;
+  font-size: 0.95rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(17, 17, 17, 0.7);
@@ -566,17 +579,17 @@ main {
 
 .section-heading {
   display: grid;
-  grid-template-columns: 70px minmax(0, 1fr);
-  gap: 24px;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 16px;
   align-items: start;
-  margin-bottom: 32px;
+  margin-bottom: 22px;
 }
 
 .section-heading h2 {
-  max-width: 13ch;
-  font-size: clamp(2.5rem, 5vw, 4.8rem);
-  line-height: 0.98;
-  letter-spacing: -0.05em;
+  max-width: 22ch;
+  font-size: var(--type-title-lg);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
 }
 
 .about-grid {
@@ -589,7 +602,7 @@ main {
   display: grid;
   gap: 18px;
   padding: 30px 0 0;
-  font-size: 1.05rem;
+  font-size: var(--type-body-lg);
 }
 
 .about-panels {
@@ -609,7 +622,7 @@ main {
 }
 
 .mini-panel strong {
-  font-size: 1.28rem;
+  font-size: 1.16rem;
   line-height: 1.35;
 }
 
@@ -663,8 +676,8 @@ main {
 .project-body h3,
 .article-card h3,
 .achievement-item h3 {
-  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
-  line-height: 1.03;
+  font-size: var(--type-title-md);
+  line-height: 1.08;
   letter-spacing: -0.04em;
 }
 
@@ -750,10 +763,10 @@ main {
 .article-card {
   padding: 26px;
   border-radius: var(--radius-lg);
-  min-height: 320px;
+  min-height: 296px;
   display: grid;
   align-content: space-between;
-  gap: 24px;
+  gap: 20px;
 }
 
 .article-link {
@@ -865,15 +878,15 @@ main {
   gap: 12px;
   margin-bottom: 12px;
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: var(--type-label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .blog-entry h2 {
   max-width: 18ch;
-  font-size: clamp(1.75rem, 2.5vw, 2.6rem);
-  line-height: 1.03;
+  font-size: clamp(1.55rem, 2.4vw, 2.25rem);
+  line-height: 1.08;
   letter-spacing: -0.05em;
   margin-bottom: 10px;
   text-wrap: balance;
@@ -895,7 +908,7 @@ main {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   color: var(--text);
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -909,8 +922,8 @@ main {
 
 .article-hero h1 {
   max-width: 12ch;
-  font-size: clamp(2.8rem, 6.8vw, 5rem);
-  line-height: 0.95;
+  font-size: clamp(2.55rem, 5.6vw, 4.2rem);
+  line-height: 0.98;
   letter-spacing: -0.06em;
 }
 
@@ -933,7 +946,7 @@ main {
 .article-lead-label {
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  font-size: 0.72rem;
+  font-size: var(--type-label);
   color: var(--muted);
 }
 
@@ -944,22 +957,22 @@ main {
   background: rgba(245, 245, 247, 0.92);
   border-radius: 0 24px 24px 0;
   font-family: "Instrument Serif", serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  line-height: 1.2;
+  font-size: clamp(1.35rem, 2.6vw, 1.8rem);
+  line-height: 1.24;
   letter-spacing: -0.03em;
 }
 
 .article-body h2 {
   margin-top: 12px;
-  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
-  line-height: 1.12;
+  font-size: clamp(1.38rem, 2.2vw, 1.95rem);
+  line-height: 1.16;
   letter-spacing: -0.04em;
 }
 
 .article-body p {
   color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.95;
+  font-size: var(--type-body);
+  line-height: 1.86;
 }
 
 .blog-pagination {
@@ -1021,7 +1034,7 @@ main {
   grid-column: 1;
   padding-top: 18px;
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-align: right;
@@ -1051,7 +1064,7 @@ main {
 
 .timeline-eyebrow {
   color: var(--muted);
-  font-size: 0.74rem;
+  font-size: var(--type-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
@@ -1059,8 +1072,8 @@ main {
 .timeline-card h3 {
   margin-top: 12px;
   margin-bottom: 12px;
-  font-size: clamp(1.45rem, 2vw, 1.9rem);
-  line-height: 1.1;
+  font-size: clamp(1.32rem, 1.9vw, 1.72rem);
+  line-height: 1.14;
   letter-spacing: -0.04em;
 }
 
@@ -1124,7 +1137,7 @@ main {
 }
 
 .stack-logo-label {
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--text);
@@ -1175,7 +1188,7 @@ main {
   padding: 0 12px;
   border-radius: 999px;
   background: rgba(29, 95, 209, 0.08);
-  font-size: 0.72rem;
+  font-size: var(--type-label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1197,7 +1210,7 @@ main {
   right: 24px;
   bottom: 24px;
   color: var(--text);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   line-height: 1.6;
   opacity: 0;
   transform: translateY(12px);
@@ -1211,7 +1224,7 @@ main {
 }
 
 .awards-copy {
-  margin-top: 28px;
+  margin-top: 24px;
   margin-bottom: 18px;
 }
 
@@ -1480,13 +1493,14 @@ main {
 }
 
 .award-overlay strong {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.2;
 }
 
 .award-overlay span {
   color: rgba(255, 247, 239, 0.82);
-  line-height: 1.5;
+  font-size: var(--type-body-sm);
+  line-height: 1.45;
 }
 
 .achievement-item {
@@ -1509,8 +1523,8 @@ main {
   max-width: 12ch;
   margin-top: 12px;
   margin-bottom: 18px;
-  font-size: clamp(2.6rem, 5vw, 4.8rem);
-  line-height: 0.97;
+  font-size: clamp(2.15rem, 4.2vw, 3.75rem);
+  line-height: 1;
   letter-spacing: -0.05em;
 }
 
@@ -1529,6 +1543,7 @@ main {
   background: rgba(255, 255, 255, 0.45);
   border: 1px solid rgba(17, 17, 17, 0.08);
   font-weight: 700;
+  font-size: var(--type-body-sm);
   transition: transform 180ms ease, background-color 180ms ease;
   overflow-wrap: anywhere;
 }
@@ -1540,11 +1555,24 @@ main {
 
 .site-footer {
   display: flex;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 18px;
+  gap: 24px;
   padding: 0 0 42px;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: var(--type-body-sm);
+}
+
+.site-footer-copy {
+  display: grid;
+  gap: 6px;
+  max-width: 42rem;
+}
+
+.site-footer-signoff {
+  color: var(--text);
+  font-weight: 700;
+  text-align: right;
 }
 
 .section-cta {
@@ -1560,16 +1588,16 @@ main {
 
 .page-hero h1 {
   max-width: 12ch;
-  font-size: clamp(3.2rem, 8vw, 6.2rem);
-  line-height: 0.94;
+  font-size: var(--type-page-title);
+  line-height: 0.98;
   letter-spacing: -0.06em;
 }
 
 .page-intro {
   max-width: 46rem;
   color: var(--muted);
-  font-size: 1.08rem;
-  line-height: 1.8;
+  font-size: var(--type-body-lg);
+  line-height: 1.76;
 }
 
 .page-stack {
@@ -1599,13 +1627,13 @@ main {
 
 .detail-role {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: var(--type-body-sm);
 }
 
 .detail-card h2 {
   max-width: 18ch;
-  font-size: clamp(2rem, 4vw, 3.4rem);
-  line-height: 0.98;
+  font-size: clamp(1.82rem, 3.2vw, 2.9rem);
+  line-height: 1.02;
   letter-spacing: -0.05em;
   margin-bottom: 16px;
 }
@@ -1613,7 +1641,7 @@ main {
 .detail-card p {
   max-width: 62rem;
   color: var(--muted);
-  line-height: 1.85;
+  line-height: 1.78;
   margin-bottom: 22px;
 }
 
@@ -1624,7 +1652,46 @@ main {
 
 .certificates-intro p {
   color: var(--muted);
-  line-height: 1.8;
+  font-size: var(--type-body-lg);
+  line-height: 1.76;
+}
+
+.certificate-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+}
+
+.certificates-track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.certificates-track.is-animated {
+  animation: certificates-track-loop var(--certificates-duration, 90s) linear infinite;
+}
+
+.certificates-track:hover {
+  animation-play-state: paused;
+}
+
+.certificates-group {
+  display: flex;
+  gap: 18px;
+  padding-right: 18px;
+  flex-shrink: 0;
+}
+
+@keyframes certificates-track-loop {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(calc(var(--certificates-loop-distance, 0px) * -1), 0, 0);
+  }
 }
 
 .certificate-grid {
@@ -1669,7 +1736,7 @@ main {
   min-height: 34px;
   padding: 0 12px;
   border-radius: 999px;
-  font-size: 0.72rem;
+  font-size: var(--type-label);
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -1697,8 +1764,8 @@ main {
 }
 
 .certificate-copy h3 {
-  font-size: clamp(1.4rem, 2.6vw, 1.95rem);
-  line-height: 1.08;
+  font-size: clamp(1.22rem, 2.1vw, 1.62rem);
+  line-height: 1.12;
   letter-spacing: -0.04em;
 }
 
@@ -1710,7 +1777,8 @@ main {
 
 .certificate-copy p:last-child {
   color: var(--muted);
-  line-height: 1.75;
+  font-size: var(--type-body-sm);
+  line-height: 1.68;
 }
 
 .certificate-actions {
@@ -1722,6 +1790,25 @@ main {
 
 .certificate-actions .button {
   min-height: 46px;
+}
+
+.certificate-card-compact {
+  flex: 0 0 min(360px, 78vw);
+  width: min(360px, 78vw);
+}
+
+.certificate-card-compact .certificate-preview,
+.certificate-card-compact .certificate-preview img,
+.certificate-card-compact .pdf-thumbnail-frame {
+  min-height: 200px;
+}
+
+.certificate-card-compact .certificate-copy h3 {
+  font-size: clamp(1.12rem, 1.8vw, 1.42rem);
+}
+
+.certificate-card-hidden .certificate-actions {
+  display: none;
 }
 
 .reveal {
@@ -1872,7 +1959,7 @@ main {
 
   .site-nav a {
     flex: 0 0 auto;
-    font-size: 0.88rem;
+    font-size: 0.84rem;
     padding: 9px 12px;
   }
 
@@ -1881,7 +1968,7 @@ main {
   }
 
   .brand-text {
-    font-size: 0.88rem;
+    font-size: 0.84rem;
   }
 
   .hero {
@@ -1892,7 +1979,7 @@ main {
 
   .hero-copy h1 {
     max-width: 100%;
-    font-size: clamp(2.7rem, 13vw, 4rem);
+    font-size: clamp(2.75rem, 12vw, 4rem);
   }
 
   .hero-text,
@@ -1900,8 +1987,8 @@ main {
   .article-body p,
   .detail-card p,
   .contact-panel p {
-    font-size: 0.98rem;
-    line-height: 1.8;
+    font-size: 0.96rem;
+    line-height: 1.76;
   }
 
   .hero-actions {
@@ -2006,12 +2093,13 @@ main {
   }
 
   .section-shell {
-    padding: 46px 0;
+    padding: 34px 0;
   }
 
   .section-heading {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
+    margin-bottom: 18px;
   }
 
   .section-heading h2,
@@ -2053,6 +2141,15 @@ main {
   .certificate-card {
     padding: 18px;
     border-radius: 24px;
+  }
+
+  .certificate-marquee {
+    mask-image: none;
+  }
+
+  .certificate-card-compact {
+    flex-basis: min(292px, 84vw);
+    width: min(292px, 84vw);
   }
 
   .certificate-preview,
@@ -2120,8 +2217,13 @@ main {
 
   .site-footer {
     flex-direction: column;
+    align-items: flex-start;
     padding-bottom: 28px;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+  }
+
+  .site-footer-signoff {
+    text-align: left;
   }
 }
 
@@ -2147,7 +2249,7 @@ main {
   .section-heading h2,
   .contact-panel h2,
   .detail-card h2 {
-    font-size: clamp(2rem, 8vw, 2.7rem);
+    font-size: clamp(1.58rem, 6.6vw, 2.2rem);
   }
 
   .stack-logo-grid {

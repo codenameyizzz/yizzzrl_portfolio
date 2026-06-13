@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AwardsMarquee from '../components/AwardsMarquee';
-import CertificateGallery from '../components/CertificateGallery';
+import CertificatesMarquee from '../components/CertificatesMarquee';
 import Lightbox from '../components/Lightbox';
 import PageShell from '../components/PageShell';
 import SocialIcon from '../components/SocialIcon';
@@ -298,7 +298,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <CertificateGallery items={featuredCertificates} onPreview={setLightboxItem} />
+        <CertificatesMarquee items={featuredCertificates} onPreview={setLightboxItem} />
 
         <div className="section-cta reveal">
           <Link className="button button-primary" to="/certificates">
