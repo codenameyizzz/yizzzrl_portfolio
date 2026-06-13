@@ -1,47 +1,50 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import CertificateCard from './CertificateCard';
 
 export default function CertificatesMarquee({ items, onPreview }) {
-  const marqueeRef = useRef(null);
-  const sourceGroupRef = useRef(null);
-  const [animated, setAnimated] = useState(false);
+  const viewportRef = useRef(null);
 
-  useEffect(() => {
-    function updateTrack() {
-      const sourceWidth = sourceGroupRef.current?.getBoundingClientRect().width || 0;
-      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const pixelsPerSecond = window.innerWidth <= 760 ? 28 : 34;
-      const duration = sourceWidth > 0 ? sourceWidth / pixelsPerSecond : 0;
+  function scrollByCard(direction) {
+    const viewport = viewportRef.current;
 
-      if (marqueeRef.current) {
-        marqueeRef.current.style.setProperty('--certificates-loop-distance', `${sourceWidth}px`);
-        marqueeRef.current.style.setProperty('--certificates-duration', `${duration.toFixed(2)}s`);
-      }
-
-      setAnimated(!reducedMotion && sourceWidth > 0);
+    if (!viewport) {
+      return;
     }
 
-    updateTrack();
-    window.addEventListener('resize', updateTrack);
+    const card = viewport.querySelector('.certificate-card');
+    const cardWidth = card?.getBoundingClientRect().width || viewport.clientWidth * 0.86;
+    const gap = 18;
 
-    return () => window.removeEventListener('resize', updateTrack);
-  }, [items.length]);
+    viewport.scrollBy({
+      left: direction * (cardWidth + gap),
+      behavior: 'smooth'
+    });
+  }
 
   return (
-    <div className="certificate-marquee">
-      <div className={`certificates-track${animated ? ' is-animated' : ''}`} ref={marqueeRef}>
-        <div className="certificates-group" ref={sourceGroupRef}>
-          {items.map((item) => (
-            <CertificateCard compact item={item} key={item.id} onPreview={onPreview} />
-          ))}
-        </div>
+    <div className="certificate-scroller reveal">
+      <div className="certificate-scroll-controls">
+        <button
+          aria-label="Scroll certificates to the left"
+          className="certificate-scroll-button"
+          type="button"
+          onClick={() => scrollByCard(-1)}
+        >
+          Prev
+        </button>
+        <button
+          aria-label="Scroll certificates to the right"
+          className="certificate-scroll-button"
+          type="button"
+          onClick={() => scrollByCard(1)}
+        >
+          Next
+        </button>
+      </div>
 
-        {[0, 1].map((groupIndex) => (
-          <div className="certificates-group" aria-hidden="true" key={groupIndex}>
-            {items.map((item) => (
-              <CertificateCard compact hidden item={item} key={`${groupIndex}-${item.id}`} />
-            ))}
-          </div>
+      <div className="certificate-scroll-viewport" ref={viewportRef}>
+        {items.map((item) => (
+          <CertificateCard compact item={item} key={item.id} onPreview={onPreview} />
         ))}
       </div>
     </div>

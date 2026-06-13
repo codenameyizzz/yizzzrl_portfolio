@@ -288,21 +288,19 @@ export default function HomePage() {
           <span className="section-index">07</span>
           <div>
             <p className="eyebrow">Certificate</p>
-            <h2>Highlighted certificates and official records that can be previewed directly.</h2>
+            <h2>Selected certificates you can preview directly.</h2>
           </div>
         </div>
 
         <div className="certificates-intro reveal">
-          <p>
-            A focused selection from the broader Certificate archive, including competition recognition, research training, internship records, and certification milestones.
-          </p>
+          <p>A compact preview from the wider certificate archive.</p>
         </div>
 
         <CertificatesMarquee items={featuredCertificates} onPreview={setLightboxItem} />
 
         <div className="section-cta reveal">
           <Link className="button button-primary" to="/certificates">
-            Load more certificates
+            View all certificates
           </Link>
         </div>
       </section>

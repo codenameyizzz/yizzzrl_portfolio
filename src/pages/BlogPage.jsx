@@ -17,11 +17,11 @@ export default function BlogPage() {
 
   return (
     <PageShell footerLines={blogFooter}>
-      <section className="page-hero section-shell reveal">
+      <section className="page-hero blog-page-hero section-shell reveal">
         <p className="eyebrow">Blog / Articles</p>
-        <h1>{featuredPost.title}</h1>
+        <h1>Writing on systems, engineering, and practical product work.</h1>
         <p className="page-intro">
-          Artikel unggulan ini menjadi pusat utama halaman blog, dilengkapi artikel lain sebagai arsip editorial yang bisa dibuka secara terpisah.
+          Selected articles, technical notes, and reflections collected in a cleaner editorial layout.
         </p>
       </section>
 

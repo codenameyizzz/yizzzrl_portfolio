@@ -32,6 +32,8 @@ function CertificatePreview({ item, hidden }) {
 }
 
 function CertificateMeta({ item }) {
+  const summary = item.summary.trim().replace(/\.$/, '');
+
   return (
     <>
       <div className="certificate-meta">
@@ -42,7 +44,7 @@ function CertificateMeta({ item }) {
       <div className="certificate-copy">
         <h3>{item.title}</h3>
         <p className="certificate-issuer">{item.issuer}</p>
-        <p>{item.summary}</p>
+        <p>{summary}</p>
       </div>
     </>
   );
@@ -69,6 +71,15 @@ export default function CertificateCard({
         <CertificatePreview hidden={hidden} item={item} />
         <CertificateMeta item={item} />
       </div>
+    );
+  }
+
+  if (compact) {
+    return (
+      <button className={`${className} certificate-card-button`} type="button" onClick={() => onPreview(buildPreviewItem(item))}>
+        <CertificatePreview item={item} />
+        <CertificateMeta item={item} />
+      </button>
     );
   }
 

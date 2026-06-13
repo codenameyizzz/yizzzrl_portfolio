@@ -19,9 +19,9 @@ export default function CertificatesPage() {
     <PageShell footerLines={certificatesFooter}>
       <section className="page-hero section-shell reveal">
         <p className="eyebrow">Certificates</p>
-        <h1>Certificates, official documents, and training records that can be previewed directly.</h1>
+        <h1>Certificates and official records.</h1>
         <p className="page-intro">
-          This page collects all previewable files from the Certificate archive, including PDF certificates and image-based records from competitions, training programs, internships, and academic development.
+          A previewable archive of certificates, training records, and official documents.
         </p>
       </section>
 
@@ -30,7 +30,7 @@ export default function CertificatesPage() {
           <span className="section-index">01</span>
           <div>
             <p className="eyebrow">Archive</p>
-            <h2>{certificates.length} previewable certificate files curated from the Certificate folder.</h2>
+            <h2>{certificates.length} previewable files curated from the Certificate folder.</h2>
           </div>
         </div>
 
